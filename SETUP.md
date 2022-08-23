@@ -72,7 +72,7 @@ $ git checkout -b framework laravel/master
 5. Go back to develop branch and merge framework branch
 ```
 $ git checkout develop
-$ git merge framework --allow-unrelated-histories
+$ git merge framework --allow-unrelated-histories --squash
 ```
 
 6. Push develop branch to remote repository
