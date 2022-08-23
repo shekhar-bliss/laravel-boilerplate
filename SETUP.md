@@ -27,3 +27,8 @@ $ git commit -m "first commit"
 ```
 
 --------------------------------------------------------------------------------
+## Generating a new SSH key
+1. Generate a new SSH key on your local machine
+```
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+```
