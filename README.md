@@ -13,8 +13,8 @@ Welcome to the Laravel Portfoilo Management Web Application! Our goal is to offe
     -w /var/www/html \
     laravelsail/php81-composer:latest \
     composer install --ignore-platform-reqs`
-- Run __php artisan key:generate__
-- Run __php artisan migrate --seed__ (it has some seeded data for your testing)
+- Run __./vendor/bin/sail up__
+- Run __./vendor/bin/sail artisan migrate --seed__ (it has some seeded data for your testing)
 - That's it: launch the main URL.
 - You can login to adminpanel by going go `/login` URL and login with credentials __admin@admin.com__ - __password__
 - For other users, doctors/directors, their email is in `users.email` field, and password is __password__
