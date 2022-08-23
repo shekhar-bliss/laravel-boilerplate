@@ -81,3 +81,34 @@ $ git push origin develop
 ```
 
 --------------------------------------------------------------------------------
+
+## Creating a release branch
+Release branches are created from the develop branch.
+1. Branch off and give the release branch a name reflecting the version number
+```
+$ git checkout -b release-0.1 origin/develop
+```
+2. Checkout to master branch
+```
+$ git checkout master
+```
+
+3. Merge release branch into master
+```
+$ git merge --no-ff release-0.1
+```
+
+4. that commit on master must be tagged for easy future reference to this historical version
+```
+$ git tag -a v0.1 -m "Laravel v9.3.4 Framework"
+```
+
+5. Push tag to remote repository
+```
+$ git push origin v0.1
+```
+
+6. Push master branch to remote repository
+```
+$ git push origin master
+```
