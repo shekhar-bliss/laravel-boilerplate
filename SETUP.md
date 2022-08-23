@@ -47,3 +47,37 @@ $ ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 $ git checkout -b develop origin/master
 ```
+
+
+## Add the Framework Repository to project repository
+1. Add the framework's repository
+```
+$ git remote add laravel git@github.com:laravel/laravel.git
+```
+2. Check project repositories
+```
+$ git remote -v
+```
+
+3. Gather information from the framework repository master branch
+```
+$ git fetch laravel master
+```
+
+4. Create a separate branch named framework that matches and pulls in the most recent version of Laravel.
+```
+$ git checkout -b framework laravel/master
+```
+
+5. Go back to develop branch and merge framework branch
+```
+$ git checkout develop
+$ git merge framework --allow-unrelated-histories
+```
+
+6. Push develop branch to remote repository
+```
+$ git push origin develop
+```
+
+--------------------------------------------------------------------------------
