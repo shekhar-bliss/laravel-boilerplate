@@ -186,7 +186,4 @@ $ ./vendor/bin/sail artisan migrate
 ```
 $ ./vendor/bin/sail composer require laravel/breeze
 $ ./vendor/bin/sail artisan breeze:install vue --dark
-$ ./vendor/bin/sail npm install
-$ ./vendor/bin/sail npm run dev
-$ ./vendor/bin/sail artisan migrate
 ```
