@@ -62,6 +62,8 @@ $ git remote -v
 3. Gather information from the framework repository master branch
 ```
 $ git fetch laravel master
+
+// In case of framework branch already exists
 $ git pull laravel master
 ```
 
@@ -117,7 +119,13 @@ $ git push origin master
 --------------------------------------------------------------------------------
 
 ## Docker : Installing Composer Dependencies
-1. A small Docker container containing PHP and Composer to install the application's dependencies:
+1. Directory Permissions
+ug+rwx => 775
+```
+$ sudo chown -R $USER:www-data /path/to/your/laravel/root/directory
+```
+
+2. A small Docker container containing PHP and Composer to install the application's dependencies:
 ```
 $ docker run --rm \
     -u "$(id -u):$(id -g)" \
@@ -126,3 +134,48 @@ $ docker run --rm \
     laravelsail/php81-composer:latest \
     composer install --ignore-platform-reqs
 ```
+
+3. Copy .env.example file to .env and change db variable values accordingly in it
+```
+$ cp .env.docker .env
+```
+
+4. Installing Sail Into Clone Laravel application repository via docker
+```
+$ docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v $(pwd):/var/www/html \
+    -w /var/www/html \
+    laravelsail/php81-composer:latest \
+    php artisan sail:install
+```
+
+5. Change .env variable values accordingly
+```
+APP_PORT=82
+
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=laravel_boilerplate
+DB_USERNAME=sail
+DB_PASSWORD=password
+FORWARD_DB_PORT=3302
+
+VITE_PORT=5172
+```
+
+6. Start Sail
+```
+$ ./vendor/bin/sail up
+```
+
+7. The first time you run the Sail up command, Sail's application containers will be built on your machine. This could take several minutes.
+Once the application's Docker containers have been started, you can access the application in your web browser at: http://localhost:{APP_PORT}.
+
+8. Running Migrations via sail
+```
+$ ./vendor/bin/sail artisan migrate
+```
+
+--------------------------------------------------------------------------------
