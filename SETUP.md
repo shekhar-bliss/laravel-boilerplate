@@ -62,6 +62,7 @@ $ git remote -v
 3. Gather information from the framework repository master branch
 ```
 $ git fetch laravel master
+$ git pull laravel master
 ```
 
 4. Create a separate branch named framework that matches and pulls in the most recent version of Laravel.
