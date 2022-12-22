@@ -61,15 +61,15 @@ $ git remote -v
 
 3. Gather information from the framework repository master branch
 ```
-$ git fetch laravel master
+$ git fetch laravel 9.x
 
 // In case of framework branch already exists
-$ git pull laravel master
+$ git pull laravel 9.x
 ```
 
 4. Create a separate branch named framework that matches and pulls in the most recent version of Laravel.
 ```
-$ git checkout -b framework laravel/master
+$ git checkout -b framework laravel/9.x
 ```
 
 5. Go back to develop branch and merge framework branch
@@ -179,3 +179,14 @@ $ ./vendor/bin/sail artisan migrate
 ```
 
 --------------------------------------------------------------------------------
+
+## Install Breeze
+
+1. Installing Breeze via Composer and sail
+```
+$ ./vendor/bin/sail composer require laravel/breeze --dev
+$ ./vendor/bin/sail artisan breeze:install
+$ ./vendor/bin/sail npm install
+$ ./vendor/bin/sail npm run dev
+$ ./vendor/bin/sail artisan migrate
+```
