@@ -184,9 +184,6 @@ $ ./vendor/bin/sail artisan migrate
 
 1. Installing Breeze via Composer and sail
 ```
-$ ./vendor/bin/sail composer require laravel/breeze --dev
-$ ./vendor/bin/sail artisan breeze:install
-$ ./vendor/bin/sail npm install
-$ ./vendor/bin/sail npm run dev
-$ ./vendor/bin/sail artisan migrate
+$ ./vendor/bin/sail composer require laravel/breeze
+$ ./vendor/bin/sail artisan breeze:install vue --dark
 ```
